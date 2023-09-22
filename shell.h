@@ -11,7 +11,7 @@
 #include <sys/wait.h>
 
 /* Constants */
-
+extern char **environ;
 #define PROMPT "$ "
 
 /* function prototypes */

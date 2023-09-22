@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
-*execute_command - Executes a given input
-*@agrv: the argument vector parsed
-*Return: nothing
+* execute_command - Executes a given input
+* @argv: the argument vector parsed
+* Return: nothing
 */
 
 void execute_command(char **argv)
@@ -13,7 +13,7 @@ void execute_command(char **argv)
 	if (argv)
 	{
 		input = argv[0];
-		
+
 		if (execve(input, argv, NULL) == -1)
 			perror("Execve Error");
 	}
