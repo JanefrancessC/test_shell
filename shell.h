@@ -18,7 +18,7 @@ extern char **environ;
 
 
 /* Constants */
-
+extern char **environ;
 #define PROMPT "$ "
 
 /* function prototypes */

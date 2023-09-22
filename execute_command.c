@@ -1,9 +1,15 @@
 #include "shell.h"
 
 /**
+<<<<<<< HEAD
 *execute_command - Executes a given input
 *@agrv: the argument vector parsed
 *Return: -1 0n error or 0 on success
+=======
+* execute_command - Executes a given input
+* @argv: the argument vector parsed
+* Return: nothing
+>>>>>>> 53ab6c1c76f4369fe076f4c3433c903f8f13dc1d
 */
 
 int execute_command(char **argv)
@@ -14,6 +20,7 @@ int execute_command(char **argv)
 	{
 		input = argv[0];
 
+<<<<<<< HEAD
 		if (_strchr(input, '/') != NULL)
 		{		
 			command = _strdup(input);
@@ -37,6 +44,9 @@ int execute_command(char **argv)
 		}
 		if (execve(command, argv, NULL) == -1)
 		{	
+=======
+		if (execve(input, argv, NULL) == -1)
+>>>>>>> 53ab6c1c76f4369fe076f4c3433c903f8f13dc1d
 			perror("Execve Error");
 			free(command);
 			return (-1);
