@@ -16,6 +16,7 @@
 
 /* function prototypes */
 char *_strcpy(char *dest, const char *src);
+void execute_command(char **argv);
 
 #endif /* SHELL_H */
 

@@ -21,7 +21,12 @@ int main(int argc, char **argv)
 	{
 		printf(PROMPT " ");
 		input_read = getline(&input, &input_size, stdin);
-
+	
+		if (input_read == -1)
+		{
+			printf("Exiting ...\n");
+			return (-1);
+		}
 /* Allocate space for input-copy */
 		input_copy = malloc(sizeof(char) * input_read);
 		if (input_copy == NULL)
@@ -31,21 +36,12 @@ int main(int argc, char **argv)
 		}
 		_strcpy(input_copy, input);
 
-		if (input_read == -1)
-		{
-			printf("Exiting ...\n");
-			return (-1);
-		}
-		else
-		{
-			token = strtok(input, delim);
+		token = strtok(input, delim);
 			
-			while (token != NULL)
-			{
-				n_tokens++;
-				token = strtok(NULL, delim);
-			}
-		}
+		while (token != NULL)
+		{
+			n_tokens++;
+			token = strtok(NULL, delim);				}
 		n_tokens++;
 
 		argv = malloc(sizeof(char *) * n_tokens);
@@ -60,12 +56,7 @@ int main(int argc, char **argv)
 		}
 		argv[i] = NULL;
 
-/*		printf("%s\n", input); */
-		for (i = 0; argv[i] !=NULL; i++)
-		{
-			free(argv[i]);
-		}		
-		free(argv);
+		execute_command(argv);
 	}
 	free(input_copy);
 	free(input);

@@ -8,13 +8,13 @@
 
 void execute_command(char **argv)
 {
-	char *cmd = NULL;
+	char *input = NULL;
 
 	if (argv)
 	{
-		cmd = argv[0];
+		input = argv[0];
 		
-		if (execve(cmd, argv, NULL) == -1)
-			perror("Error: ");
+		if (execve(input, argv, NULL) == -1)
+			perror("Execve Error");
 	}
 }
