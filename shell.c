@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 	const char *delim = " \n";
 	int i = 0, n_tokens = 0;
 	(void)argc;
-
+	
 	while (1)
 	{
 		printf(PROMPT " ");
@@ -45,7 +45,18 @@ int main(int argc, char **argv)
 			_strcpy(argv[i], token);
 			token = strtok(NULL, delim);
 		}
-		argv[i] = NULL, execute_command(argv);
+		argv[i] = NULL;
+		
+		if (_strncmp(argv[0], "exit", _strlen("exit")) == 0)
+		{
+			execute_exit(input, input_copy, argv);
+		}
+		else if (_strncmp(argv[0], "env", _strlen("env")) == 0)
+		{
+			execute_env();
+		}
+		else
+			execute_command(argv);
 	}
 	free(input_copy);
 	free(input);
