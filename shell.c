@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 			perror("malloc error");
 			return (-1);
 		}
-		strcpy(input_copy, input);
+		_strcpy(input_copy, input);
 
 		if (input_read == -1)
 		{
@@ -54,7 +54,7 @@ int main(int argc, char **argv)
 		for (i = 0; token != NULL; i++)
 		{
 			argv[i] = malloc(sizeof(char) * strlen(token));
-			strcpy(argv[i], token);
+			_strcpy(argv[i], token);
 
 			token = strtok(NULL, delim);
 		}
@@ -66,8 +66,8 @@ int main(int argc, char **argv)
 			free(argv[i]);
 		}		
 		free(argv);
-		free(input);
-		free(input_copy);
 	}
+	free(input_copy);
+	free(input);
 	return (0);
 }
