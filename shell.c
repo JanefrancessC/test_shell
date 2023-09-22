@@ -14,51 +14,39 @@ int main(int argc, char **argv)
 	const char *delim = " \n";
 	char *token;
 	int i = 0, n_tokens = 0;
-
-(void)argc;
+	(void)argc;
 
 	while (1)
 	{
 		printf(PROMPT " ");
 		input_read = getline(&input, &input_size, stdin);
-	
 		if (input_read == -1)
 		{
-			printf("Exiting ...\n");
-			return (-1);
+			printf("Exiting ...\n"), return (-1);
 		}
-/* Allocate space for input-copy */
 		input_copy = malloc(sizeof(char) * input_read);
 		if (input_copy == NULL)
 		{
-			perror("malloc error");
-			return (-1);
+			perror("malloc error"), return (-1);
 		}
 		_strcpy(input_copy, input);
-
 		token = strtok(input, delim);
-			
 		while (token != NULL)
 		{
-			n_tokens++;
-			token = strtok(NULL, delim);				}
+			n_tokens++, token = strtok(NULL, delim);
+		}
 		n_tokens++;
-
 		argv = malloc(sizeof(char *) * n_tokens);
 		token = strtok(input_copy, delim);
-
 		for (i = 0; token != NULL; i++)
 		{
-			argv[i] = malloc(sizeof(char) * strlen(token));
+			argv[i] = malloc(sizeof(char) * _strlen(token));
 			_strcpy(argv[i], token);
-
 			token = strtok(NULL, delim);
 		}
 		argv[i] = NULL;
-
 		execute_command(argv);
 	}
-	free(input_copy);
-	free(input);
+	free(input_copy), free(input);
 	return (0);
 }
