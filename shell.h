@@ -21,6 +21,9 @@ char *pathfinder(char *cmd);
 size_t _strlen(const char *str);
 int _strncmp(const char *str1, const char *str2, size_t n);
 char *_getenv(const char *name);
+char *_strdup(const char *str);
+
+
 
 #endif /* SHELL_H */
 
