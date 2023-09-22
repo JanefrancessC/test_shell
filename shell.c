@@ -22,14 +22,20 @@ int main(int argc, char **argv)
 		printf(PROMPT " ");
 		input_read = getline(&input, &input_size, stdin);
 		if (input_read == -1)
-			printf("Exiting ...\n"), return (-1);
+			return (-1);
 		input_copy = malloc(sizeof(char) * input_read);
 		if (input_copy == NULL)
-			perror("malloc error"), return (-1);
+		{	
+			perror("malloc error");
+			return (-1);
+		}
 		_strcpy(input_copy, input);
 		token = strtok(input, delim);
 		while (token != NULL)
-			n_tokens++, token = strtok(NULL, delim);
+		{			
+			n_tokens++; 
+			token = strtok(NULL, delim);
+		}
 		n_tokens++;
 		argv = malloc(sizeof(char *) * n_tokens);
 		token = strtok(input_copy, delim);
@@ -41,6 +47,7 @@ int main(int argc, char **argv)
 		}
 		argv[i] = NULL, execute_command(argv);
 	}
-	free(input_copy), free(input);
+	free(input_copy);
+	free(input);
 	return (0);
 }

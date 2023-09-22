@@ -8,13 +8,14 @@
 
 void execute_command(char **argv)
 {
-	char *input = NULL;
+	char *input = NULL, *command = NULL;
 
 	if (argv)
 	{
 		input = argv[0];
+		command = pathfinder(input);
 		
-		if (execve(input, argv, NULL) == -1)
+		if (execve(command, argv, NULL) == -1)
 			perror("Execve Error");
 	}
 }

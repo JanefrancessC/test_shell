@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 
 /* Constants */
 
@@ -22,7 +23,7 @@ size_t _strlen(const char *str);
 int _strncmp(const char *str1, const char *str2, size_t n);
 char *_getenv(const char *name);
 char *_strdup(const char *str);
-char *strcat(const char *dest, const char *src);
+char *_strcat(const char *dest, const char *src);
 
 
 #endif /* SHELL_H */

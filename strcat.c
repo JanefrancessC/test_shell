@@ -7,7 +7,7 @@
 *Return: pointer to the new contenated string
 */
 
-char *strcat(const char *dest, const char *src)
+char *_strcat(const char *dest, const char *src)
 {
 	char *new_dest;
 	size_t dest_len;
@@ -27,7 +27,5 @@ char *strcat(const char *dest, const char *src)
 	_strcpy(new_dest, dest);
 	_strcpy(new_dest +dest_len, src);
 
-	free(dest);
-	
 	return (new_dest);
 }
