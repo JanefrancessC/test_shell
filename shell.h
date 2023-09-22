@@ -18,6 +18,8 @@
 char *_strcpy(char *dest, const char *src);
 void execute_command(char **argv);
 char *pathfinder(char *cmd);
+size_t _strlen(const char *str);
+int _strncmp(const char *str1, const char *str2, size_t n);
 
 #endif /* SHELL_H */
 
