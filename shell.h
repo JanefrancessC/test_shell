@@ -17,6 +17,7 @@
 /* function prototypes */
 char *_strcpy(char *dest, const char *src);
 void execute_command(char **argv);
+char *pathfinder(char *cmd);
 
 #endif /* SHELL_H */
 
